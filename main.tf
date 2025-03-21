@@ -1,5 +1,6 @@
 resource "aws_instance" "web" {
   ami           = var.ami_id        # Reference the valid AMI ID
+<<<<<<< HEAD
   count = 2                         # Create 2 instances    
   instance_type = var.instance_type # Directly set the instance type
 
@@ -10,6 +11,19 @@ resource "aws_instance" "web" {
     volume_type           = var.volume_type           # General Purpose SSD (can be changed to gp3 or other types)
     delete_on_termination = var.delete_on_termination # Ensure volume deletion on termination
   }
+=======
+  instance_type = var.instance_type # Directly set the instance type to t2.medium
+
+  security_groups = [aws_security_group.web.name]
+
+  # Define root volume size (30 GB)
+  root_block_device {
+    volume_size           = var.volume_size           # Set the volume size to 30 GB
+    volume_type           = var.volume_type           # General Purpose SSD (can be changed to gp3 or other types)
+    delete_on_termination = var.delete_on_termination # Set to true so the volume will be deleted when the instance is terminated
+  }
+
+>>>>>>> e46a7cf2ea6014a721cf37878b94cae0163bc708
   tags = {
     Name = "HelloWorld"
   }
