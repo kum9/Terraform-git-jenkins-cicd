@@ -1,9 +1,17 @@
 resource "aws_instance" "web" {
+
   ami           = var.ami_id        # Reference the valid AMI ID
   instance_type = var.instance_type # Directly set the instance type to t2.medium
   security_groups = [aws_security_group.web.name]
 
   count = 3 # Create 3 instances
+
+  ami             = var.ami_id        # Reference the valid AMI ID
+  instance_type   = var.instance_type # Directly set the instance type to t2.medium
+  security_groups = [aws_security_group.web.name]
+
+  count = 2 # Create 3 instances
+
 
   # Define root volume size (30 GB)
   root_block_device {
