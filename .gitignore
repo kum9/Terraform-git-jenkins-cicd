@@ -1,0 +1,8 @@
+# Ignore Terraform directories and state files
+.terraform/*
+.terraform.lock.hcl
+terraform.tfstate.backup*
+.terraform.tfstate*
+
+# Ignore .terraform directory created by 'terraform init'
+# Ignore local tfstate backup files
