@@ -1,11 +1,7 @@
 terraform {
   backend "s3" {
     bucket = "mybucket-kum1"
-
-    key    = "modules/terraform.tfstate"
-
-    key    = "backend.tfstate"
-
+    key    = "backend.tfstate"  # Set the correct state file name
     region = "us-east-1"
   }
 }
