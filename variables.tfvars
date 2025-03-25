@@ -3,3 +3,4 @@ instance_type         = "t2.medium"             # Ensure this is a valid instanc
 volume_size           = 30
 volume_type           = "gp2"
 delete_on_termination = true
+
