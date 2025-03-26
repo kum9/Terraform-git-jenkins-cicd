@@ -1,10 +1,9 @@
 resource "aws_instance" "web" {
-  count         = 2  # Number of instances
-  ami           = var.ami_id
-  instance_type = var.instance_type
+  ami             = var.ami_id
+  instance_type   = var.instance_type
+  security_groups = [aws_security_group.web.name]
 
-  # ✅ Use "vpc_security_group_ids" instead of "security_groups"
-  vpc_security_group_ids = [var.security_group_id]  
+  count = 2
 
   root_block_device {
     volume_size           = var.volume_size
@@ -13,7 +12,6 @@ resource "aws_instance" "web" {
   }
 
   tags = {
-    Name = "web-${count.index + 1}"
+    Name = "HelloWorld-${count.index}" # Unique name for each instance (e.g., HelloWorld-0, HelloWorld-1)
   }
 }
-
