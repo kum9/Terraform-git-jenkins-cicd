@@ -1,7 +1,7 @@
 resource "aws_instance" "web" {
   ami             = var.ami_id
   instance_type   = var.instance_type
-  security_groups = [var.security_group_id]  # Use the passed security group ID
+  security_groups = [var.security_group_id]  # Using the security group ID passed from the root module
 
   count = 2
 

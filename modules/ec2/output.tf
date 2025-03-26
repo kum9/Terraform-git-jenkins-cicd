@@ -1,7 +1,5 @@
-# In modules/ec2/outputs.tf
-
 output "security_group_id" {
-  value = aws_security_group.web.id
+  value = var.security_group_id  # Output the security group ID passed from the root module
 }
 
 output "instance_ids" {
