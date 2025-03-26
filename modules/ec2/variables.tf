@@ -29,6 +29,6 @@ variable "delete_on_termination" {
 }
 
 variable "security_group_id" {
-  description = "The ID of the security group to associate with EC2 instances."
+  description = "The ID of the security group to associate with the EC2 instances"
   type        = string
 }
