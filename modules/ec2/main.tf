@@ -1,7 +1,8 @@
+# In modules/ec2/main.tf
 resource "aws_instance" "web" {
   ami             = var.ami_id
   instance_type   = var.instance_type
-  security_groups = [aws_security_group.web.name]
+  security_groups = [var.security_group_id]  # Using the passed security group ID
 
   count = 2
 
@@ -12,6 +13,6 @@ resource "aws_instance" "web" {
   }
 
   tags = {
-    Name = "HelloWorld-${count.index}" # Unique name for each instance (e.g., HelloWorld-0, HelloWorld-1)
+    Name = "HelloWorld-${count.index}"
   }
 }
