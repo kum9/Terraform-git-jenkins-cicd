@@ -1,12 +1,7 @@
-# Access outputs from the ec2 module
-output "ec2_security_group_id" {
-  value = module.ec2.security_group_id
+output "instance_ids_from_instance" {
+  value = [for instance in module.ec2.aws_instance.web : instance.id]
 }
 
-output "ec2_instance_ids" {
-  value = module.ec2.instance_ids
-}
-
-output "ec2_public_ips" {
-  value = module.ec2.public_ips
+output "security_group_id_from_instance" {
+  value = module.ec2.aws_security_group.web.id
 }
