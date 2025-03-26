@@ -27,15 +27,3 @@ variable "delete_on_termination" {
   type        = bool
   default     = true # Default to delete the root volume on instance termination
 }
-
-variable "AWS_ACCESS_KEY" {
-  description = "AWS Access Key"
-  type        = string
-  sensitive   = true
-}
-
-variable "AWS_SECRET_KEY" {
-  description = "AWS Secret Key"
-  type        = string
-  sensitive   = true
-}
